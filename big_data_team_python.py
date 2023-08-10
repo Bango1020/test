@@ -8,7 +8,7 @@ import pandas as pd
 import numpy as np
 import streamlit as st
 from datetime import date
-import matplotlib.pyplot as plt
+import matplotlib as plt
 
 df = pd.read_csv('clensing data.csv',encoding = 'utf-8-sig')
 df['충전시작시각'] = pd.to_datetime(df['충전시작시각'], format='%Y-%m-%d')
