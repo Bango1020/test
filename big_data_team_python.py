@@ -6,11 +6,23 @@
 
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.set_theme(style='whitegrid', font_scale=1.5)
+sns.set_palette('Set2', n_colors=10)
+plt.rc('font', family='AppleGothic')
+plt.rc('axes', unicode_minus=False)
+
 import streamlit as st
 from datetime import date
-import matplotlib as plt
 
-df = pd.read_csv('clensing data.csv',encoding = 'utf-8-sig')
+
+# In[2]:
+
+
+df = pd.read_csv('/Users/bango/Desktop/지난 학기/2022 2학년 1학기/수업/빅데이터 처리와 시각화/분프 팀플/clensing data.csv',encoding = 'utf-8-sig')
+df.info()
+#시작시각 종료시각 데이트타임으로 바꿔주기
 df['충전시작시각'] = pd.to_datetime(df['충전시작시각'], format='%Y-%m-%d')
 df['충전종료시각'] = pd.to_datetime(df['충전종료시각'], format='%Y-%m-%d')
 
@@ -162,9 +174,9 @@ st.subheader('Top5 비교')
 def top5(col_name, top=5):
     my_agg = (df_simple.groupby(col_name)['충전량'].sum()).reset_index().sort_values('충전량', ascending=False).head(top)
     my_agg[col_name] = my_agg[col_name].astype('str')
-    #fig = plt.figure(figsize=(3,2))
-    #ax = sns.barplot(x='충전량', y=col_name, data=my_agg)
-    ax.bar_label(ax.containers[0], label_type='center', color='white')
+    fig = plt.figure(figsize=(15,10))
+    ax = sns.barplot(x='충전량', y=col_name, data=my_agg)
+    #ax.bar_label(ax.containers[0], label_type='center', color='white')
     return fig
 
 col1, col2 = st.columns(2)
