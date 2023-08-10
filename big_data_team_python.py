@@ -162,7 +162,7 @@ st.subheader('Top5 비교')
 def top5(col_name, top=5):
     my_agg = (df_simple.groupby(col_name)['충전량'].sum()).reset_index().sort_values('충전량', ascending=False).head(top)
     my_agg[col_name] = my_agg[col_name].astype('str')
-    fig = plt.figure(figsize=(3,2))
+    #fig = plt.figure(figsize=(3,2))
     #ax = sns.barplot(x='충전량', y=col_name, data=my_agg)
     ax.bar_label(ax.containers[0], label_type='center', color='white')
     return fig
