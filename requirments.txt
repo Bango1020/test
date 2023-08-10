@@ -1,5 +1,0 @@
-streamlit
-pandas
-numpy
-matplotlib.pyplot
-seaborn==0.11.1
