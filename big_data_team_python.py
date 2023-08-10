@@ -8,11 +8,6 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-sns.set_theme(style='whitegrid', font_scale=1.5)
-sns.set_palette('Set2', n_colors=10)
-plt.rc('font', family='AppleGothic')
-plt.rc('axes', unicode_minus=False)
-
 import streamlit as st
 from datetime import date
 
