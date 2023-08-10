@@ -20,7 +20,7 @@ from datetime import date
 # In[2]:
 
 
-df = pd.read_csv('/Users/bango/Desktop/지난 학기/2022 2학년 1학기/수업/빅데이터 처리와 시각화/분프 팀플/clensing data.csv',encoding = 'utf-8-sig')
+df = pd.read_csv('clensing data.csv',encoding = 'utf-8-sig')
 df.info()
 #시작시각 종료시각 데이트타임으로 바꿔주기
 df['충전시작시각'] = pd.to_datetime(df['충전시작시각'], format='%Y-%m-%d')
